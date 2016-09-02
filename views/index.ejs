@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title of the document</title>
+    <!-- load MUI -->
+    <link href="//cdn.muicss.com/mui-0.7.4/css/mui.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="//cdn.muicss.com/mui-0.7.4/js/mui.min.js"></script>
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+        jQuery(function($) {
+            var $bodyEl = $('body'),
+                    $sidedrawerEl = $('#sidedrawer');
+
+
+            function showSidedrawer() {
+                // show overlay
+                var options = {
+                    onclose: function() {
+                        $sidedrawerEl
+                                .removeClass('active')
+                                .appendTo(document.body);
+                    }
+                };
+
+                var $overlayEl = $(mui.overlay('on', options));
+
+                // show element
+                $sidedrawerEl.appendTo($overlayEl);
+                setTimeout(function() {
+                    $sidedrawerEl.addClass('active');
+                }, 20);
+            }
+
+
+            function hideSidedrawer() {
+                $bodyEl.toggleClass('hide-sidedrawer');
+            }
+
+
+            $('.js-show-sidedrawer').on('click', showSidedrawer);
+            $('.js-hide-sidedrawer').on('click', hideSidedrawer);
+            var $titleEls = $('strong', $sidedrawerEl);
+
+            $titleEls
+                    .next()
+                    .hide();
+
+            $titleEls.on('click', function() {
+                $(this).next().slideToggle(200);
+            });
+        });
+
+
+    </script>
+</head>
+
+<body class="hide-sidedrawer">
+
+<div id="sidedrawer" class="mui--no-user-select">
+    <div id="sidedrawer-brand" class="mui--appbar-line-height mui--text-title">Brand.io</div>
+    <div class="mui-divider"></div>
+    <ul>
+        <li>
+            <strong>Category 1</strong>
+            <ul>
+                <li><a href="#">Item 1</a></li>
+                <li><a href="#">Item 2</a></li>
+                <li><a href="#">Item 3</a></li>
+            </ul>
+        </li>
+    </ul>
+    <!-- Side drawer content goes here -->
+</div>
+<header id="header">
+    <div class="mui-appbar mui--appbar-line-height">
+        <div class="mui-container-fluid">
+            <a class="sidedrawer-toggle mui--visible-xs-inline-block js-show-sidedrawer">☰</a>
+            <a class="sidedrawer-toggle mui--hidden-xs js-hide-sidedrawer">☰</a>
+            <span class="mui--text-title mui--visible-xs-inline-block">Brand.io</span>
+        </div>
+    </div>
+</header>
+<div id="content-wrapper">
+
+    <div class="mui--appbar-height"></div>
+    <div class="mui-container-fluid">
+        <br>
+        <h1>Fileserve</h1>
+        <%- include('upload'); %>
+        <ul class="mui-list--unstyled">
+            <% files.forEach(function(file) { %>
+            <li><a href="upload/<%= file %>"> <%= file %> </li></a>
+            <% }); %>
+        </ul>
+    </div>
+    <!-- Main content goes here -->
+</div>
+<footer id="footer">
+    <div class="mui-container-fluid">
+        <br>
+        Made with ♥ by <a href="https://www.muicss.com">MUI</a>
+    </div>
+</footer>
+</body>
+</html>
