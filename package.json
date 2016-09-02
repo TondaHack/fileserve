@@ -12,8 +12,11 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies":{
-    "express": "^4.14.0"
+  "dependencies": {
+    "ejs": "^2.5.1",
+    "express": "^4.14.0",
+    "mversion": "^1.10.1",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
