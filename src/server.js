@@ -10,13 +10,12 @@ import { checkDirectorySync } from './helpers/helpers';
 
 export default (args) => {
     const app = express();
-    const port = process.env.PORT || config.port;
     const srcDir = path.resolve(__dirname);
     const root = path.dirname(srcDir);
     const defaultFilePath = `${root}/${config.defaultFileFolder}`;
     const { filepath = defaultFilePath } = args;
     const uploadMiddleware = upload(filepath).single('image');
-
+    const port = args.port || config.port;
     app.use(bodyParser.urlencoded({
         extended: true,
     }));

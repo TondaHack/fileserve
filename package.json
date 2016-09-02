@@ -1,14 +1,18 @@
 {
-  "name": "nodejs",
+  "name": "fileserve",
   "version": "1.0.0",
   "description": "",
   "main": "dist/server.js",
   "scripts": {
     "postinstall": "npm run build",
     "test": "npm run build && ./node_modules/.bin/mocha --compilers js:babel-core/register",
-    "start": "./node_modules/.bin/nodemon src/run.js --exec babel-node --presets es2015,stage-0 --filepath /home/tonda/projects/fileserve/files",
+    "start": "./node_modules/.bin/nodemon src/run.js --exec babel-node --presets es2015,stage-0",
     "build": "./node_modules/.bin/babel src -d dist",
-    "eslint": "./node_modules/.bin/eslint ./src"
+    "eslint": "./node_modules/.bin/eslint ./src",
+    "release": "mversion patch -m",
+    "release:patch": "mversion patch -m",
+    "release:minor": "mversion minor -m",
+    "release:major": "mversion major -m"
   },
   "bin": {
     "fileserve": "bin/fileserve.js"
