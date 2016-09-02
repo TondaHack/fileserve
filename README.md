@@ -18,7 +18,7 @@ Node server for sharing files in local network. Secured by basic authorization.
 ##Options
 
 | Parameter        | Type           | Default  |
-| ------------- |:-------------:| -----:|
+| ------------- |-------------| -----|
 | username      | String| kangaroo|
 | password     | String      |   elephant |
 | port | Number      |    3000 |
