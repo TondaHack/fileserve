@@ -7,7 +7,7 @@ const { username = config.defaultUsername, password = config.defaultPassword } =
 
 const unauthorized = (res) => {
     res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
-    return res.send(401);
+    return res.sendStatus(401);
 };
 
 export default (req, res, next) => {

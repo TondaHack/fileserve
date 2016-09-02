@@ -9,6 +9,7 @@
     "start": "./node_modules/.bin/nodemon src/run.js --exec babel-node --presets es2015,stage-0",
     "build": "./node_modules/.bin/babel src -d dist",
     "eslint": "./node_modules/.bin/eslint ./src",
+    "serve": "bin/fileserve.js",
     "release": "mversion patch -m",
     "release:patch": "mversion patch -m",
     "release:minor": "mversion minor -m",

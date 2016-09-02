@@ -1,6 +1,7 @@
 node_modules
 dist
 .idea/
+fileserve
 files
 npm-debug.log
 
