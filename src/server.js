@@ -45,6 +45,6 @@ export default (args) => {
 
     app.listen(port, () => {
         const ipaddress = ip.address();
-        console.info(`Server is running on ${ipaddress}:${port}`);
+        console.info(`Server is running on http://${ipaddress}:${port}`);
     });
 };

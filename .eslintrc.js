@@ -4,8 +4,6 @@ module.exports = {
         "indent": ["error", 4],
     },
     "plugins": [
-        "react",
-        "jsx-a11y",
         "import"
     ]
 };
