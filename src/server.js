@@ -24,7 +24,7 @@ export default (args) => {
     app.use(express.static(`${root}/${config.publicFolder}`));
     app.use('/upload', express.static(filepath));
 
-    app.set('views', root + '/views');
+    app.set('views', `${root}/views`);
     app.set('view engine', 'ejs');
 
     app.get('/', (req, res) => {
