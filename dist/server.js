@@ -57,6 +57,8 @@ exports.default = function (args) {
     app.use(_auth2.default);
     app.use(_express2.default.static(root + '/' + _config2.default.publicFolder));
     app.use('/upload', _express2.default.static(filepath));
+
+    app.set('views', root + '/views');
     app.set('view engine', 'ejs');
 
     app.get('/', function (req, res) {
